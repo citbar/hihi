@@ -1,4 +1,4 @@
-задание1
+Р·Р°РґР°РЅРёРµ1
 import random
 
 def selection_sort(arr):
@@ -15,10 +15,10 @@ def selection_sort(arr):
 arr = [random.randint(2, 103) for _ in range(random.randint(5, 25))]
 
 
-print("массив до сортировки:", arr)
-print("массив после сортировки:", selection_sort(arr.copy()))
+print("РјР°СЃСЃРёРІ РґРѕ СЃРѕСЂС‚РёСЂРѕРІРєРё:", arr)
+print("РјР°СЃСЃРёРІ РїРѕСЃР»Рµ СЃРѕСЂС‚РёСЂРѕРІРєРё:", selection_sort(arr.copy()))
 
-задание2
+Р·Р°РґР°РЅРёРµ2
 import random
 
 def generate_random_array(size):
@@ -29,13 +29,13 @@ def sort_reverse(arr):
 
 def main():
     arr = generate_random_array(random.randint(5, 25))
-    print("До сортировки:", arr)
-    print("После сортировки:", sort_reverse(arr))
+    print("РјР°СЃСЃРёРІ РґРѕ СЃРѕСЂС‚РёСЂРѕРІРєРё:", arr)
+    print("РјР°СЃСЃРёРІ РїРѕСЃР»Рµ СЃРѕСЂС‚РёСЂРѕРІРєРё:", sort_reverse(arr))
 
 if __name__ == "__main__":
     main()
 
-задание3
+Р·Р°РґР°РЅРёРµ3
 import random
 
 
@@ -57,9 +57,10 @@ def main():
                   for _ in range(random.randint(5, 15))]
     
     
-    print("список телефонов до сортировки:", phone_list)
+    print("СЃРїРёСЃРѕРє С‚РµР»РµС„РѕРЅРѕРІ РґРѕ СЃРѕСЂС‚РёСЂРѕРІРєРё:", phone_list)
     sorted_list = selection_sort_phones(phone_list)
-    print("список телефонов после сортировки:", sorted_list)
+    print("СЃРїРёСЃРѕРє С‚РµР»РµС„РѕРЅРѕРІ РїРѕСЃР»Рµ СЃРѕСЂС‚РёСЂРѕРІРєРё:", sorted_list)
 
 if __name__ == "__main__":
     main()
+
