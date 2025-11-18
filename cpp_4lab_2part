@@ -1,0 +1,87 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Weapon {
+public:
+    string name;    // название оружия
+    int damage;     // урон
+    double weight;  // вес
+
+    // Конструктор с параметрами
+    Weapon(const string& n, int d, double w)
+        : name(n), damage(d), weight(w) {
+        cout << "Создан: " << name << endl;
+    }
+
+    // Конструктор по умолчанию
+    Weapon() : Weapon("Меч", 40, 3.2) {}
+
+    // Деструктор
+    ~Weapon() {
+        cout << "Уничтожение: " << name 
+             << " (урон= " << damage 
+             << ", вес= " << weight << " кг)" << endl;
+    }
+
+    // Проверка возможности поднять оружие
+    bool canLift(double maxWeight) const {
+        return weight > maxWeight;
+    }
+
+    // Суммарный вес с другим оружием
+    double combinedWeight(const Weapon& other) const {
+        return weight + other.weight;
+    }
+};
+
+int main() {
+    setlocale(LC_ALL, "Russian");
+    
+    {
+        Weapon weapon1("Топор", 60, 4.8);
+        cout << "Оружие: " << weapon1.name 
+             << ", урон: " << weapon1.damage 
+             << ", вес: " << weapon1.weight << " кг" << endl;
+
+        cout << "Можно поднять " << weapon1.weight << " кг? " 
+             << (weapon1.canLift(4.0) ? "Нет" : "Да") << endl;
+        
+        cout << endl;
+        
+        Weapon weapon2("Щит", 15, 6.0);
+        cout << "Оружие: " << weapon2.name 
+             << ", урон: " << weapon2.damage 
+             << ", вес: " << weapon2.weight << " кг" << endl;
+        
+        cout << "Можно поднять " << weapon2.weight << " кг? " 
+             << (weapon2.canLift(5.0) ? "Нет" : "Да") << endl;
+      
+        cout << endl;
+        
+        // Сумма весов двух оружий
+        double totalWeight = weapon1.combinedWeight(weapon2);
+        cout << "Суммарный вес топора и щита: " << totalWeight << " кг" << endl;
+        
+        // Проверка подъемности суммарного веса
+        cout << "Можно поднять оба оружия (" << totalWeight << " кг)? " 
+             << (totalWeight > 8.0 ? "Нет" : "Да") << endl;
+    }
+
+    cout << endl;
+
+    // Динамический объект оружия
+    Weapon* dynamicWeapon = new Weapon("Лук", 35, 2.5);
+    cout << "Динамическое оружие: " << dynamicWeapon->name 
+         << ", урон: " << dynamicWeapon->damage 
+         << ", вес: " << dynamicWeapon->weight << " кг" << endl;
+    
+    // Проверка подъемности динамического оружия
+    cout << "Можно поднять лук весом " << dynamicWeapon->weight << " кг? " 
+         << (dynamicWeapon->canLift(3.0) ? "Нет" : "Да") << endl;
+
+    delete dynamicWeapon;
+    dynamicWeapon = nullptr;
+
+    return 0;
+}
