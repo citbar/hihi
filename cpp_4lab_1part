@@ -1,0 +1,40 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Weapon {
+public:
+    string name;    //название оружия
+    int damage;     //урон
+    double weight;  //вес
+
+    //Конструктор с тремя параметрами
+    Weapon(const string& n, int d, double w) 
+        : name(n), damage(d), weight(w) {
+    }
+
+    //Конструктор без параметров, вызывает конструктор с параметрами
+    Weapon() : Weapon("палка", 10, 1) {
+    }
+};
+
+int main() {
+    setlocale(LC_ALL, "Russian");
+
+    Weapon w1("клинок", 30, 2);
+    Weapon w2;
+
+    cout << "Оружие 1:" << endl;
+    cout << " Имя: " << w1.name << endl;   
+    cout << " Урон: " << w1.damage << endl;   
+    cout << " Вес: " << w1.weight << " кг" << endl; 
+
+    cout << endl; //пустая строка для разделения
+
+    cout << "Оружие 2:" << endl;
+    cout << " Имя: " << w2.name << endl;  
+    cout << " Урон: " << w2.damage << endl; 
+    cout << " Вес: " << w2.weight << " кг" << endl; 
+
+    return 0; 
+}
